@@ -33,6 +33,7 @@ import org.jetbrains.annotations.NotNull;
 public class GameController {
 
     final public Board board;
+    private int moves = 0;
 
     public GameController(@NotNull Board board) {
         this.board = board;
@@ -44,14 +45,37 @@ public class GameController {
      *
      * @param space the space to which the current player should move
      */
+
+    /*
+        Board has an ArrayArray ([][]) called spaces of the Class Space.
+        [x] pos and [y] pos.
+        Each space can contain a player, can be found with 'board.getSpace(x, y).getPlayer();'
+        The player variable in 'Space' is at default set to null. but '.setPlayer()' can be used to put a player there
+
+     */
     public void moveCurrentPlayerToSpace(@NotNull Space space)  {
         // TODO Assignment V1: method should be implemented by the students:
-        //   - the current player should be moved to the given space
+        //   1 - the current player should be moved to the given space
         //     (if it is free()
-        //   - and the current player should be set to the player
+        //   2 - and the current player should be set to the player
         //     following the current player
-        //   - the counter of moves in the game should be increased by one
+        //   3 - the counter of moves in the game should be increased by one
         //     if the player is moved
+        /*
+            1 Current player can be retrieved from 'Board', an instance of which is found in this class.
+            Current player can be retrieved with 'board.getCurrentPlayer()'
+            'Space' has a set player and get player, if getPlayer return null it means that no player is at this spot.
+            Set player already removes the player from the old spot.
+         */
+                if(space.getPlayer() == null) {
+                    space.setPlayer(board.getCurrentPlayer());
+                    board.nextTurn(); //
+                    moves++;
+                }
+
+
+
+
 
     }
 

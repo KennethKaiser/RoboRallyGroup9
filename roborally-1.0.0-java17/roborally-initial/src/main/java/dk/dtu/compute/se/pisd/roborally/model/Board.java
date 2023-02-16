@@ -102,6 +102,19 @@ public class Board extends Subject {
         return players.size();
     }
 
+    /*
+    nextTurn() was created by Toby, for the method in game Controller that needs to be able to switch to the next player.
+     */
+    public void nextTurn(){
+        if(getPlayerNumber(getCurrentPlayer()) < getPlayersNumber()-1){
+            //Next number player
+            setCurrentPlayer(getPlayer(getPlayerNumber(getCurrentPlayer())+1));
+        }
+        else{
+            //player number 0
+            setCurrentPlayer(getPlayer(0));
+        }
+    }
     public void addPlayer(@NotNull Player player) {
         if (player.board == this && !players.contains(player)) {
             players.add(player);
