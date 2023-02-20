@@ -30,14 +30,28 @@ import org.jetbrains.annotations.NotNull;
  * @author Ekkart Kindler, ekki@dtu.dk
  *
  */
+
+/**
+ CommandCard is the class making the blueprint for command cards
+ It is a subject and as so has visibility over Objects that can be updated
+ */
 public class CommandCard extends Subject {
 
     final public Command command;
 
+    /**
+     CommandCard needs a command, so that the robot has something to follow
+     in activation phase.
+     Commands can be optained from the enum Command.
+     Because it needs a command it can´t be Null.
+     */
     public CommandCard(@NotNull Command command) {
         this.command = command;
     }
 
+    /**
+     getName returns the name of the card.
+     */
     public String getName() {
         return command.displayName;
     }

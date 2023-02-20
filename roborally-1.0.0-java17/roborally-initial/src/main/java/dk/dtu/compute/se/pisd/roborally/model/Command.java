@@ -31,8 +31,16 @@ import java.util.List;
  * @author Ekkart Kindler, ekki@dtu.dk
  *
  */
+
+/**
+ enum Command is where the commands for the commandscards are stored.
+ */
 public enum Command {
 
+    /**
+     Here are a set of the most important commands,
+     all are given a displayName to distinguise them.
+     */
     // This is a very simplistic way of realizing different commands.
 
     FORWARD("Fwd"),
