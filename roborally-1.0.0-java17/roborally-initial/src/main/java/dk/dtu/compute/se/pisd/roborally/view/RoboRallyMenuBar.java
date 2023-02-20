@@ -48,6 +48,11 @@ public class RoboRallyMenuBar extends MenuBar {
 
     private MenuItem exitApp;
 
+    /**
+     * This class constructer is responible for creating a drop-down menu. This contructor is called and created
+     * in the start()/main() method.
+     * @param appController
+     */
     public RoboRallyMenuBar(AppController appController) {
         this.appController = appController;
 
@@ -79,6 +84,11 @@ public class RoboRallyMenuBar extends MenuBar {
         update();
     }
 
+    /**
+     * This method is updating the drop-down menu. The method checks if the game is running or the game hasn't started yet.
+     * If the game hasn't started yet it will only show the following options: newGame and loadGame.
+     * If the game is running it will show the following options: stopGame and saveGame.
+     */
     public void update() {
         if (appController.isGameRunning()) {
             newGame.setVisible(false);
