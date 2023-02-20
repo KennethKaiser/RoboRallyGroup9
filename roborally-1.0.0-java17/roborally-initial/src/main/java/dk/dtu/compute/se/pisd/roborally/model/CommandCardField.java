@@ -29,6 +29,11 @@ import dk.dtu.compute.se.pisd.designpatterns.observer.Subject;
  * @author Ekkart Kindler, ekki@dtu.dk
  *
  */
+
+/**
+        CommandCardField is where the cards are placed during programming
+        It is a subject and as so has visibility over Objects that can be updated
+ */
 public class CommandCardField extends Subject {
 
     final public Player player;
@@ -37,16 +42,25 @@ public class CommandCardField extends Subject {
 
     private boolean visible;
 
+    /**
+     CommandCardField needs a player to own the field, each player should have a CommandCardField
+     */
     public CommandCardField(Player player) {
         this.player = player;
         this. card = null;
         this.visible = true;
     }
 
+    /**
+     getCard calls to the CommandCard class to get a card
+     */
     public CommandCard getCard() {
         return card;
     }
 
+    /**
+     setCard changes a card to a choosen one from the CommandCard class
+     */
     public void setCard(CommandCard card) {
         if (card != this.card) {
             this.card = card;
@@ -54,10 +68,18 @@ public class CommandCardField extends Subject {
         }
     }
 
+    /**
+     A boolean expresion telling if the card is visible or not
+     (true = visible, false = not visible)
+     */
     public boolean isVisible() {
         return visible;
     }
 
+    /**
+     Set the cards visibility with a boolean expresion
+     (true = visible, false = not visible)
+     */
     public void setVisible(boolean visible) {
         if (visible != this.visible) {
             this.visible = visible;
