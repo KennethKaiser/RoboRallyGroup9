@@ -57,6 +57,12 @@ public class Board extends Subject {
 
     private boolean stepMode;
 
+    /*
+    Constructor of the board that takes width, height and a boardName
+    It sets the values and creates new spaces at all the spots, it differs depending on the size of the board.
+    it also adds the space to the spaces array-array with x and y value
+    it also sets the stepmode to false.
+     */
     public Board(int width, int height, @NotNull String boardName) {
         this.boardName = boardName;
         this.width = width;
@@ -70,15 +76,23 @@ public class Board extends Subject {
         }
         this.stepMode = false;
     }
-
+    /*
+    creates a default board with width and height. Uses the previous method to do so.
+     */
     public Board(int width, int height) {
         this(width, height, "defaultboard");
     }
-
+    /*
+    Returns the game ID
+     */
     public Integer getGameId() {
         return gameId;
     }
-
+    /*
+    sets the game ID to the int in parameters. It requires that the gameID is null.
+    if the current id is not null, then if the gameId of the board is already the parameter value then nothing happens.
+    In other cases then an exception is thrown saying that you cannot assign a new id to the board.
+     */
     public void setGameId(int gameId) {
         if (this.gameId == null) {
             this.gameId = gameId;
@@ -89,6 +103,9 @@ public class Board extends Subject {
         }
     }
 
+    /*
+    Returns the space object at this board with the parameters x and y.
+     */
     public Space getSpace(int x, int y) {
         if (x >= 0 && x < width &&
                 y >= 0 && y < height) {
@@ -97,13 +114,56 @@ public class Board extends Subject {
             return null;
         }
     }
-
+    /*
+        Returns the amount of players on the current board. The size of the PLayers arrayList
+    */
     public int getPlayersNumber() {
         return players.size();
     }
+    /*
+        adds a player to the players arrayList with the parameter Player.
+        it doesnt add the player to the list if it is already there.
+        It requires that the player's board is this one.
 
+        notifyChange()
+     */
+    public void addPlayer(@NotNull Player player) {
+        if (player.board == this && !players.contains(player)) {
+            players.add(player);
+            notifyChange();
+        }
+    }
+    /*
+    returns the player Object of the int parameter unless the int is below 0 or higher than the player arrayList size.
+    otherwise it returns null
+     */
+    public Player getPlayer(int i) {
+        if (i >= 0 && i < players.size()) {
+            return players.get(i);
+        } else {
+            return null;
+        }
+    }
+    /*
+    returns the Player object of the player who's current turn it is.
+     */
+    public Player getCurrentPlayer() {
+        return current;
+    }
+    /*
+    sets the current player as long as the player arrayList contains this player.
+    notifyChange()
+     */
+    public void setCurrentPlayer(Player player) {
+        if (player != this.current && players.contains(player)) {
+            this.current = player;
+            notifyChange();
+        }
+    }
     /*
     nextTurn() was created by Toby, for the method in game Controller that needs to be able to switch to the next player.
+    it switches to the next turn, being the next in the players array. Unless it is at the end, then it goes to number 0.
+    This will change when we implement actual turn counter.
      */
     public void nextTurn(){
         if(getPlayerNumber(getCurrentPlayer()) < getPlayersNumber()-1){
@@ -115,36 +175,17 @@ public class Board extends Subject {
             setCurrentPlayer(getPlayer(0));
         }
     }
-    public void addPlayer(@NotNull Player player) {
-        if (player.board == this && !players.contains(player)) {
-            players.add(player);
-            notifyChange();
-        }
-    }
 
-    public Player getPlayer(int i) {
-        if (i >= 0 && i < players.size()) {
-            return players.get(i);
-        } else {
-            return null;
-        }
-    }
-
-    public Player getCurrentPlayer() {
-        return current;
-    }
-
-    public void setCurrentPlayer(Player player) {
-        if (player != this.current && players.contains(player)) {
-            this.current = player;
-            notifyChange();
-        }
-    }
-
+    /*
+    Returns phase
+     */
     public Phase getPhase() {
         return phase;
     }
 
+    /*
+    sets the phase with a Phase parameter
+     */
     public void setPhase(Phase phase) {
         if (phase != this.phase) {
             this.phase = phase;
