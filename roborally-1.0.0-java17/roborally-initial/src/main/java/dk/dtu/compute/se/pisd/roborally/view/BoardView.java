@@ -53,6 +53,10 @@ public class BoardView extends VBox implements ViewObserver {
 
     private SpaceEventHandler spaceEventHandler;
 
+    /**
+     * BoardView constructor is responsible for creating the visual representation of the board.
+     * @param gameController
+     */
     public BoardView(@NotNull GameController gameController) {
         board = gameController.board;
 
@@ -100,6 +104,12 @@ public class BoardView extends VBox implements ViewObserver {
             this.gameController = gameController;
         }
 
+        /**
+         * This checks for a mouseevent. If the user has clicked on the screen, it will check if the click is an instance
+         * of Spaceview. If it is an instance of click, it will move the player to the space that has been clicked.
+         * Should be deleted eventually.
+         * @param event
+         */
         @Override
         public void handle(MouseEvent event) {
             Object source = event.getSource();
