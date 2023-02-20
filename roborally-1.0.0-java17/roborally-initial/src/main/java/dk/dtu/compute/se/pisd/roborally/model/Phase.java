@@ -27,6 +27,16 @@ package dk.dtu.compute.se.pisd.roborally.model;
  * @author Ekkart Kindler, ekki@dtu.dk
  *
  */
+
+/**
+ enum Phase tells which different phases can be used in RoboRally
+ Some are more important than others.
+ */
 public enum Phase {
+
+    /**
+     These are the four different phases in RoboRally
+     INITIALISATION is the least important to implement
+     */
     INITIALISATION, PROGRAMMING, ACTIVATION, PLAYER_INTERACTION
 }

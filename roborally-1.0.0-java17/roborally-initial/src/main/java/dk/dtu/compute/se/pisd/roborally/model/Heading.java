@@ -27,14 +27,27 @@ package dk.dtu.compute.se.pisd.roborally.model;
  * @author Ekkart Kindler, ekki@dtu.dk
  *
  */
+
+/**
+ enum Heading tells which directions the robots cane be phasing
+ */
 public enum Heading {
 
+    /**
+     These are the four possible directions
+     */
     SOUTH, WEST, NORTH, EAST;
 
+    /**
+     This method tells the next direction going against the clock
+     */
     public Heading next() {
         return values()[(this.ordinal() + 1) % values().length];
     }
 
+    /**
+     This method tells the next direction going with the clock
+     */
     public Heading prev() {
         return values()[(this.ordinal() + values().length - 1) % values().length];
     }
