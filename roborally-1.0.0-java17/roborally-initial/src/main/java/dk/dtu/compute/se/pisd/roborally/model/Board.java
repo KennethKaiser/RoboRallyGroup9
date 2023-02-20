@@ -125,7 +125,7 @@ public class Board extends Subject {
         it doesnt add the player to the list if it is already there.
         It requires that the player's board is this one.
 
-        notifyChange()
+        notifyChange() is an update method in designpatterns.observer.Subject
      */
     public void addPlayer(@NotNull Player player) {
         if (player.board == this && !players.contains(player)) {
@@ -152,7 +152,7 @@ public class Board extends Subject {
     }
     /*
     sets the current player as long as the player arrayList contains this player.
-    notifyChange()
+        notifyChange() is an update method in designpatterns.observer.Subject
      */
     public void setCurrentPlayer(Player player) {
         if (player != this.current && players.contains(player)) {
@@ -185,6 +185,8 @@ public class Board extends Subject {
 
     /*
     sets the phase with a Phase parameter
+            notifyChange() is an update method in designpatterns.observer.Subject
+
      */
     public void setPhase(Phase phase) {
         if (phase != this.phase) {
@@ -193,28 +195,42 @@ public class Board extends Subject {
         }
     }
 
+    /*
+    returns step integer
+    */
     public int getStep() {
         return step;
     }
-
+    /*
+       sets step integer, but only if it is not the same as it was before and then
+        notifyChange() is an update method in designpatterns.observer.Subject
+       */
     public void setStep(int step) {
         if (step != this.step) {
             this.step = step;
             notifyChange();
         }
     }
-
+    /*
+       returns isStepMode boolean
+       */
     public boolean isStepMode() {
         return stepMode;
     }
-
+    /*
+          sets setStepMode boolean, but only if it is not the same as it was before and then
+        notifyChange() is an update method in designpatterns.observer.Subject
+          */
     public void setStepMode(boolean stepMode) {
         if (stepMode != this.stepMode) {
             this.stepMode = stepMode;
             notifyChange();
         }
     }
-
+    /*
+          if the player in the parameters has this board as its board, then it gets the index of that player in the Player arrayList
+          if it is not the right board, it returns -1.
+    */
     public int getPlayerNumber(@NotNull Player player) {
         if (player.board == this) {
             return players.indexOf(player);
