@@ -32,6 +32,7 @@ import java.util.List;
  *
  */
 
+
 /**
  enum Command is where the commands for the commandscards are stored.
  */
