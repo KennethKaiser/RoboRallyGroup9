@@ -60,6 +60,10 @@ public class AppController implements Observer {
         this.roboRally = roboRally;
     }
 
+    /**
+     * Method for making a new game, takes the values from the dialog box, and makes a game based on the choices made there.
+     * If there's no gamecontroller, it will stop the game.
+     */
     public void newGame() {
         ChoiceDialog<Integer> dialog = new ChoiceDialog<>(PLAYER_NUMBER_OPTIONS.get(0), PLAYER_NUMBER_OPTIONS);
         dialog.setTitle("Player number");
@@ -124,6 +128,9 @@ public class AppController implements Observer {
         return false;
     }
 
+    /**
+     * Method for exiting the game.
+     */
     public void exit() {
         if (gameController != null) {
             Alert alert = new Alert(AlertType.CONFIRMATION);
@@ -143,6 +150,10 @@ public class AppController implements Observer {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isGameRunning() {
         return gameController != null;
     }
