@@ -62,7 +62,9 @@ public class GameController {
          */
         if(space.getPlayer() == null) {
             space.setPlayer(board.getCurrentPlayer());
+            board.nextTurn();
             board.setPlayerMoves(board.getPlayerMoves()+1);
+            //System.out.println(board.getPlayerMoves());
             board.nextTurn();
         }
     }

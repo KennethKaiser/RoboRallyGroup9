@@ -23,6 +23,7 @@ package dk.dtu.compute.se.pisd.roborally.model;
 
 import dk.dtu.compute.se.pisd.designpatterns.observer.Subject;
 import dk.dtu.compute.se.pisd.roborally.controller.GameController;
+import dk.dtu.compute.se.pisd.roborally.view.BoardView;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -45,7 +46,7 @@ public class Board extends Subject {
     public final String boardName;
 
     private Integer gameId;
-    private int playerMoves;
+    private int playerMoves = 0;
 
     private final Space[][] spaces;
 
@@ -70,6 +71,7 @@ public class Board extends Subject {
         this.width = width;
         this.height = height;
         spaces = new Space[width][height];
+        playerMoves = 0;
         for (int x = 0; x < width; x++) {
             for(int y = 0; y < height; y++) {
                 Space space = new Space(this, x, y);
@@ -273,8 +275,7 @@ public class Board extends Subject {
     }
 
     public String getStatusMessage() {
-        // This is actually a view aspect, but for making the first task easy for
-        // the students, this method gives a string representation of the current
+         // the students, this method gives a string representation of the current
         // status of the game
 
         // TODO Assignment V1: this string could eventually be refined
@@ -284,6 +285,7 @@ public class Board extends Subject {
         //      status line should show the current player and the number
         //      of the current move!
         return "Player = " + getCurrentPlayer().getName() + " |   Turns: " + playerMoves;
+
     }
 
     // TODO Assignment V1: add a counter along with a getter and a setter, so the
