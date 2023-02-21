@@ -72,11 +72,6 @@ public class GameController {
                     board.nextTurn(); //
                     moves++;
                 }
-
-
-
-
-
     }
 
     /**
