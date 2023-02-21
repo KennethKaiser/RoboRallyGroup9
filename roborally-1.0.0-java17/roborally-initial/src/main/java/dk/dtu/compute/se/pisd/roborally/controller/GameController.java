@@ -33,7 +33,7 @@ import org.jetbrains.annotations.NotNull;
 public class GameController {
 
     final public Board board;
-    private int moves=0;
+    private int playerTurns =0;
 
     public GameController(@NotNull Board board) {
         this.board = board;
@@ -63,7 +63,7 @@ public class GameController {
         if(space.getPlayer() == null) {
             space.setPlayer(board.getCurrentPlayer());
             board.nextTurn(); //
-            moves++;
+            playerTurns++;
         }
     }
 
