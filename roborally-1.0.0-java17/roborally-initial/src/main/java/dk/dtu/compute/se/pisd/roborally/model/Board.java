@@ -168,7 +168,7 @@ public class Board extends Subject {
     This will change when we implement actual turn counter.
      */
     public void nextTurn(){
-        if(getPlayerNumber(getCurrentPlayer()) < getPlayersNumber()-1){
+        if(getPlayerNumber(current) < getPlayersNumber()-1){
             //Next number player
             setCurrentPlayer(getPlayer(getPlayerNumber(getCurrentPlayer())+1));
         }
