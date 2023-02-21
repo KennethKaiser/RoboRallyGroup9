@@ -62,8 +62,8 @@ public class GameController {
          */
         if(space.getPlayer() == null) {
             space.setPlayer(board.getCurrentPlayer());
-            board.nextTurn(); //
-            playerTurns++;
+            board.nextTurn();
+            board.setPlayerMoves(board.getPlayerMoves()+1);
         }
     }
 
@@ -87,6 +87,7 @@ public class GameController {
             return false;
         }
     }
+
 
 
 

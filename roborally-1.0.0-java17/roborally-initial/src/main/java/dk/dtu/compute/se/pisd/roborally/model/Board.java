@@ -22,6 +22,7 @@
 package dk.dtu.compute.se.pisd.roborally.model;
 
 import dk.dtu.compute.se.pisd.designpatterns.observer.Subject;
+import dk.dtu.compute.se.pisd.roborally.controller.GameController;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -44,6 +45,7 @@ public class Board extends Subject {
     public final String boardName;
 
     private Integer gameId;
+    private int playerMoves;
 
     private final Space[][] spaces;
 
@@ -281,11 +283,16 @@ public class Board extends Subject {
         //      which is counted up every time a player makes a move; the
         //      status line should show the current player and the number
         //      of the current move!
-        return "Player = " + getCurrentPlayer().getName();
+        return "Player = " + getCurrentPlayer().getName() + " |   Turns: " + playerMoves;
     }
 
     // TODO Assignment V1: add a counter along with a getter and a setter, so the
     //      state the board (game) contains the number of moves, which then can
     //      be used to extend the status message including the number of
-
+    public int getPlayerMoves(){
+        return playerMoves;
+    }
+    public void setPlayerMoves(int moves){
+        playerMoves = moves;
+    }
 }
