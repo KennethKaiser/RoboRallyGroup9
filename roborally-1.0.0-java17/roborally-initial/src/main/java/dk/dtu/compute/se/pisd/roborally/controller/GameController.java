@@ -34,6 +34,10 @@ public class GameController {
 
     final public Board board;
 
+    /**
+     * Creates a gameController from a board
+     * @param board a non null board.
+     */
     public GameController(@NotNull Board board) {
         this.board = board;
     }
@@ -60,10 +64,17 @@ public class GameController {
      * This method should eventually be removed.
      */
     public void notImplememted() {
+        throw new UnsupportedOperationException("Not implemented");
         // XXX just for now to indicate that the actual method to be used by a handler
         //     is not yet implemented
     };
 
+    /**
+     * Moves one card from a source field to a target field, if the target field is empty and the source field contains a card.
+     * @param source where you want to move the card from
+     * @param target where you want to move the card to
+     * @return true if card has been moved
+     */
     public boolean moveCards(@NotNull CommandCardField source, @NotNull CommandCardField target) {
         CommandCard sourceCard = source.getCard();
         CommandCard targetCard = target.getCard();

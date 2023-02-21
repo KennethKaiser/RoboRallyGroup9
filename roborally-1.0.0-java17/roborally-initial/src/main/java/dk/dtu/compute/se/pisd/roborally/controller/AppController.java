@@ -56,6 +56,10 @@ public class AppController implements Observer {
 
     private GameController gameController;
 
+    /**
+     * Creates an AppController from a roboRally
+     * @param roboRally a non null roboRally
+     */
     public AppController(@NotNull RoboRally roboRally) {
         this.roboRally = roboRally;
     }
@@ -64,6 +68,7 @@ public class AppController implements Observer {
      * Method for making a new game, takes the values from the dialog box, and makes a game based on the choices made there.
      * If there's no gamecontroller, it will stop the game.
      */
+
     public void newGame() {
         ChoiceDialog<Integer> dialog = new ChoiceDialog<>(PLAYER_NUMBER_OPTIONS.get(0), PLAYER_NUMBER_OPTIONS);
         dialog.setTitle("Player number");
@@ -94,10 +99,16 @@ public class AppController implements Observer {
         }
     }
 
+    /**
+     * Saves the game WITHOUT asking the user
+     */
     public void saveGame() {
-        // XXX needs to be implememged eventually
+        // XXX needs to be implemented eventually
     }
 
+    /**
+     * Method for leading a saved game. Not implemented.
+     */
     public void loadGame() {
         // XXX needs to be implememged eventually
         // for now, we just create a new game
@@ -151,14 +162,17 @@ public class AppController implements Observer {
     }
 
     /**
-     *
-     * @return
+     *Method to determine if a game is running
+     * @return true if gameController isn't null
      */
     public boolean isGameRunning() {
         return gameController != null;
     }
 
-
+    /**
+     * Method to update a given subject
+     * @param subject the subject which changed
+     */
     @Override
     public void update(Subject subject) {
         // XXX do nothing for now
