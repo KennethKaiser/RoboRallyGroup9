@@ -33,11 +33,17 @@ public class Space extends Subject {
 
     public final Board board;
 
-    public final int x;
-    public final int y;
+    public final int x; //X position
+    public final int y; //Y position
 
-    private Player player;
+    private Player player; //Player on this space
 
+    /**
+     * Constructor of Space
+     * @param board is the board this space is part of
+     * @param x - the x coordinate of the space
+     * @param y - the y coordinate of the space
+     **/
     public Space(Board board, int x, int y) {
         this.board = board;
         this.x = x;
@@ -45,14 +51,25 @@ public class Space extends Subject {
         player = null;
     }
 
+    /*
+    returns the player that is currently standing on the space
+     */
     public Player getPlayer() {
         return player;
     }
 
+    /**
+     * sets the player on the space
+     * @param player is the player you want to put onto the space
+     *
+     *  if the new player is not the old player and is null or board is the players board
+     *      sets the the current player to the new player
+     *      if the parameter player is not null, then sets the space of that player to this space.
+     *              notifyChange() is an update method in designpatterns.observer.Subject
+     */
     public void setPlayer(Player player) {
         Player oldPlayer = this.player;
-        if (player != oldPlayer &&
-                (player == null || board == player.board)) {
+        if (player != oldPlayer && (player == null || board == player.board)) {
             this.player = player;
             if (oldPlayer != null) {
                 // this should actually not happen
@@ -65,6 +82,9 @@ public class Space extends Subject {
         }
     }
 
+    /*
+    as the note within the method says, it is a manual update method
+     */
     void playerChanged() {
         // This is a minor hack; since some views that are registered with the space
         // also need to update when some player attributes change, the player can
