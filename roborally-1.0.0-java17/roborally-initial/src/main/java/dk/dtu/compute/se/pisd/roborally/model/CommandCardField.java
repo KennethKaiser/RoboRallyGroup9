@@ -25,7 +25,7 @@ import dk.dtu.compute.se.pisd.designpatterns.observer.Subject;
 
 /**
  * ...
- *
+ * This class is not in use yet. Will be implemented at a later stage.
  * @author Ekkart Kindler, ekki@dtu.dk
  *
  */

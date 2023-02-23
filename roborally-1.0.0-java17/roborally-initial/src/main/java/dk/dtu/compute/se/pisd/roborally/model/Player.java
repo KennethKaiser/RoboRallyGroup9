@@ -48,6 +48,12 @@ public class Player extends Subject {
     private CommandCardField[] program;
     private CommandCardField[] cards;
 
+    /**
+     * Constructor for Player.
+     * @param board
+     * @param color
+     * @param name
+     */
     public Player(@NotNull Board board, String color, @NotNull String name) {
         this.board = board;
         this.name = name;
@@ -96,6 +102,10 @@ public class Player extends Subject {
         return space;
     }
 
+    /**
+     * Method for moving player.
+     * @param space
+     */
     public void setSpace(Space space) {
         Space oldSpace = this.space;
         if (space != oldSpace &&

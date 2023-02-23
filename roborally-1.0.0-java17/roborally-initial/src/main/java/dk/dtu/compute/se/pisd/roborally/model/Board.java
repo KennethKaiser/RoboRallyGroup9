@@ -60,7 +60,8 @@ public class Board extends Subject {
 
     private boolean stepMode;
 
-    /*
+    /**
+     *
     Constructor of the board that takes width, height and a boardName
     It sets the values and creates new spaces at all the spots, it differs depending on the size of the board.
     it also adds the space to the spaces array-array with x and y value
@@ -80,7 +81,8 @@ public class Board extends Subject {
         }
         this.stepMode = false;
     }
-    /*
+    /**
+     *
     creates a default board with width and height. Uses the previous method to do so.
      */
     public Board(int width, int height) {
@@ -275,8 +277,6 @@ public class Board extends Subject {
     }
 
     public String getStatusMessage() {
-         // the students, this method gives a string representation of the current
-        // status of the game
 
         // TODO Assignment V1: this string could eventually be refined
         //      The status line should show more information based on
