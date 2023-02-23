@@ -66,10 +66,25 @@ public class GameController {
          */
         if(space.getPlayer() == null) {
             space.setPlayer(board.getCurrentPlayer());
-            board.nextTurn();
             board.setPlayerMoves(board.getPlayerMoves()+1);
             //System.out.println(board.getPlayerMoves());
-            board.nextTurn();
+            nextTurn();
+        }
+    }
+
+    /*
+nextTurn() was created by Toby, for the method in game Controller that needs to be able to switch to the next player.
+it switches to the next turn, being the next in the players array. Unless it is at the end, then it goes to number 0.
+This will change when we implement actual turn counter.
+ */
+    public void nextTurn(){
+        if(board.getPlayerNumber(board.getCurrentPlayer()) < board.getPlayersNumber()-1){
+            //Next number player
+            board.setCurrentPlayer(board.getPlayer((board.getPlayerNumber(board.getCurrentPlayer())+1)));
+        }
+        else{
+            //player number 0
+            board.setCurrentPlayer(board.getPlayer(0));
         }
     }
 

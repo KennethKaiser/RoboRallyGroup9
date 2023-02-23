@@ -166,21 +166,7 @@ public class Board extends Subject {
             notifyChange();
         }
     }
-    /*
-    nextTurn() was created by Toby, for the method in game Controller that needs to be able to switch to the next player.
-    it switches to the next turn, being the next in the players array. Unless it is at the end, then it goes to number 0.
-    This will change when we implement actual turn counter.
-     */
-    public void nextTurn(){
-        if(getPlayerNumber(current) < getPlayersNumber()-1){
-            //Next number player
-            setCurrentPlayer(getPlayer(getPlayerNumber(getCurrentPlayer())+1));
-        }
-        else{
-            //player number 0
-            setCurrentPlayer(getPlayer(0));
-        }
-    }
+
 
     /*
     Returns phase
