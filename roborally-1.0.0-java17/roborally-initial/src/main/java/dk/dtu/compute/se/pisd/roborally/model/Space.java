@@ -61,11 +61,10 @@ public class Space extends Subject {
     /**
      * sets the player on the space
      * @param player is the player you want to put onto the space
-     *
      *  if the new player is not the old player and is null or board is the players board
-     *      sets the the current player to the new player
+     *      sets the current player to the new player
      *      if the parameter player is not null, then sets the space of that player to this space.
-     *              notifyChange() is an update method in designpatterns.observer.Subject
+     *              notifyChange() is an update method in #designpatterns.observer.Subject
      */
     public void setPlayer(Player player) {
         Player oldPlayer = this.player;
