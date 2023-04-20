@@ -50,6 +50,11 @@ public class GameController {
          The player variable in 'Space' is at default set to null. but '.setPlayer()' can be used to put a player there
 
       */
+
+    /**
+     * Moves current player on the board after that the game progresses to the next turn
+     * @param space
+     */
     public void moveCurrentPlayerToSpace(@NotNull Space space)  {
         // TODO Assignment V1: method should be implemented by the students:
         //   1 - the current player should be moved to the given space
@@ -77,6 +82,10 @@ nextTurn() was created by Toby, for the method in game Controller that needs to 
 it switches to the next turn, being the next in the players array. Unless it is at the end, then it goes to number 0.
 This will change when we implement actual turn counter.
  */
+
+    /**
+     * Progresses the game to the next player.
+     */
     public void nextTurn(){
         if(board.getPlayerNumber(board.getCurrentPlayer()) < board.getPlayersNumber()-1){
             //Next number player
